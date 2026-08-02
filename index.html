@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EVERLOOM — Timeless Style. Modern Essence.</title>
+  <meta name="description"
+    content="EVERLOOM luxury apparel collection featuring timeless style, modern essence, and minimalist silhouettes.">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="announcement-bar">
+    <div class="announcement-content">
+      <span class="announcement-left">FREE SHIPPING ON ORDERS ABOVE ₹999</span>
+      <div class="announcement-right">
+        <a href="#store-locator">STORE LOCATOR</a>
+        <span class="divider">|</span>
+        <a href="#track-order">TRACK ORDER</a>
+        <span class="divider">|</span>
+        <a href="#help">HELP</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation Bar -->
+  <header class="navbar" id="main-navbar">
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#men" class="nav-item">MEN</a></li>
+        <li><a href="#women" class="nav-item">WOMEN</a></li>
+        <li><a href="#new-in" class="nav-item">NEW IN</a></li>
+        <li><a href="#collections" class="nav-item">COLLECTIONS</a></li>
+        <li><a href="#about" class="nav-item">ABOUT</a></li>
+      </ul>
+
+      <a href="#" class="nav-brand" id="brand-logo">EVERLOOM</a>
+
+      <div class="nav-actions">
+        <button class="nav-action-btn desktop-only" id="btn-search" aria-label="Search">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <span class="btn-text">SEARCH</span>
+        </button>
+
+        <button class="nav-action-btn desktop-only" id="btn-account" aria-label="Account">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span class="btn-text">ACCOUNT</span>
+        </button>
+
+        <button class="nav-action-btn desktop-only" id="btn-wishlist" aria-label="Wishlist">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+            </path>
+          </svg>
+          <span class="btn-text">WISHLIST</span>
+        </button>
+
+        <button class="nav-action-btn" id="btn-bag" aria-label="Bag">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="btn-text">BAG (<span id="cart-count">0</span>)</span>
+        </button>
+
+        <!-- Hamburger Button — mobile only -->
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Open Menu" aria-expanded="false">
+          <svg class="hamburger-icon-svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <line class="menu-line-top" x1="2" y1="8" x2="22" y2="8"></line>
+            <line class="menu-line-bottom" x1="9" y1="16" x2="22" y2="16"></line>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Full-Screen Menu Overlay -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true">
+    <div class="mobile-menu-inner">
+      <!-- Top Bar -->
+      <div class="mobile-menu-top">
+        <span class="mobile-menu-brand">EVERLOOM</span>
+        <div class="mobile-menu-top-right">
+          <span class="mobile-region-tag">IN / INR ₹</span>
+          <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Navigation Links (Vertically Centered & Spacious) -->
+      <div class="mobile-menu-body">
+        <nav class="mobile-nav">
+          <a href="#men" class="mobile-nav-link" data-mobile-link>
+            <span class="link-num">01</span>
+            <span class="link-text">MEN</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="#women" class="mobile-nav-link" data-mobile-link>
+            <span class="link-num">02</span>
+            <span class="link-text">WOMEN</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="#new-in" class="mobile-nav-link" data-mobile-link>
+            <span class="link-num">03</span>
+            <span class="link-text">NEW IN</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="#collections" class="mobile-nav-link" data-mobile-link>
+            <span class="link-num">04</span>
+            <span class="link-text">COLLECTIONS</span>
+            <span class="link-arrow">↗</span>
+          </a>
+          <a href="#about" class="mobile-nav-link" data-mobile-link>
+            <span class="link-num">05</span>
+            <span class="link-text">ABOUT</span>
+            <span class="link-arrow">↗</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Bottom Actions & Social Footer -->
+      <div class="mobile-menu-bottom">
+        <div class="mobile-action-grid">
+          <a href="#" class="mobile-action-item" data-mobile-link>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>SEARCH</span>
+          </a>
+          <a href="#" class="mobile-action-item" data-mobile-link>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>ACCOUNT</span>
+          </a>
+          <a href="#" class="mobile-action-item" data-mobile-link>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+            <span>WISHLIST</span>
+          </a>
+        </div>
+
+        <div class="mobile-menu-socials">
+          <span class="social-tag">EDITORIAL / 2026</span>
+          <div class="social-links">
+            <a href="#" target="_blank">INSTAGRAM</a>
+            <a href="#" target="_blank">TIKTOK</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Main Section -->
+  <main>
+    <section class="hero-section" id="hero">
+
+      <!-- Mobile Hero Top Tagline / Quote (Mobile Only) -->
+      <div class="mobile-hero-tagline">
+        <span class="mobile-tagline-season">SPRING / SUMMER 2026</span>
+        <p class="mobile-tagline-quote">“ARCHITECTURE IN MOTION”</p>
+      </div>
+
+      <!-- Giant Background Display Typography -->
+      <div class="hero-bg-text-container" id="bg-text-container">
+        <h1 class="giant-bg-text" id="giant-text">EVERLOOM</h1>
+      </div>
+
+      <!-- Subject Stage Container -->
+      <div class="hero-stage" id="hero-stage">
+        <!-- Subject Image -->
+        <div class="subject-wrapper" id="subject-wrapper">
+          <img src="./plasma/001.png" alt="EVERLOOM Model Cutout" id="hero-subject-img" class="subject-img" />
+        </div>
+      </div>
+
+      <!-- Hero Bottom Left Block -->
+      <div class="hero-bottom-left">
+        <div class="headline-block">
+          <h2 class="hero-headline">TIMELESS<br>STYLE.<br>MODERN<br>ESSENCE.</h2>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="hero-pagination-control">
+          <div class="counter-display">
+            <span class="current-num" id="current-slide-num">01</span>
+            <span class="separator">/</span>
+            <span class="total-num" id="total-slide-num">04</span>
+          </div>
+
+          <!-- Progress Step Line Bars -->
+          <div class="step-bars" id="step-bars">
+            <div class="step-bar active" data-index="0"></div>
+            <div class="step-bar" data-index="1"></div>
+            <div class="step-bar" data-index="2"></div>
+            <div class="step-bar" data-index="3"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Bottom Right Block -->
+      <div class="hero-bottom-right">
+        <!-- Circular Floating Magnetic CTA Button -->
+        <a href="#collections" class="shop-now-circle" id="shop-circle">
+          <span class="circle-text">SHOP<br>NOW</span>
+          <svg class="circle-arrow-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </a>
+
+        <div class="meta-block">
+          <span class="meta-title">NEW COLLECTION</span>
+          <span class="meta-year">2026</span>
+          <div class="accent-line-small"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Category Showcase & Designed To Last Grid (Pixel-Perfect Match to Reference Image) -->
+    <section class="category-showcase-section" id="categories">
+      <!-- Top Row: 3 Equal Category Cards (MEN, WOMEN, KIDS) -->
+      <div class="category-grid-top">
+
+        <!-- Card 1: MEN -->
+        <div class="category-card card-men">
+          <div class="category-img-wrapper">
+            <img src="./media/men.png" alt="Men's Collection" class="category-img" />
+          </div>
+          <div class="category-content">
+            <h3 class="category-title">MEN</h3>
+            <p class="category-sub">Elevated everyday<br>essentials.</p>
+            <a href="#collections" class="category-link">SHOP MEN &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 2: WOMEN -->
+        <div class="category-card card-women">
+          <div class="category-img-wrapper">
+            <img src="./media/women.png" alt="Women's Collection" class="category-img" />
+          </div>
+          <div class="category-content">
+            <h3 class="category-title">WOMEN</h3>
+            <p class="category-sub">Effortless style,<br>made for every you.</p>
+            <a href="#collections" class="category-link">SHOP WOMEN &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Card 3: KIDS -->
+        <div class="category-card card-kids">
+          <div class="category-img-wrapper">
+            <img src="./media/kids.png" alt="Kids Collection" class="category-img" />
+          </div>
+          <div class="category-content">
+            <h3 class="category-title">KIDS</h3>
+            <p class="category-sub">Comfort that<br>moves with them.</p>
+            <a href="#collections" class="category-link">SHOP KIDS &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Split Grid (DESIGNED TO LAST) -->
+      <div class="designed-to-last-banner">
+        <!-- Left: Feature Image -->
+        <div class="designed-img-wrapper">
+          <img src="./media/designedtolast.png" alt="Designed to Last" class="designed-img" />
+        </div>
+
+        <!-- Right: Editorial Banner Content -->
+        <div class="designed-content-wrapper">
+          <span class="designed-tag">SPRING / SUMMER 2026</span>
+          <h2 class="designed-heading">DESIGNED<br>TO LAST.</h2>
+          <p class="designed-desc">
+            Inspired by nature.<br>Built for your everyday.
+          </p>
+          <a href="#collections" class="designed-cta-btn">EXPLORE COLLECTION</a>
+        </div>
+      </div>
+
+      <!-- Trust Features Bar (4 Columns matching reference screenshot) -->
+      <div class="trust-features-bar">
+        <!-- Feature 1: FREE DELIVERY -->
+        <div class="trust-feature-item">
+          <div class="trust-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <div class="trust-text-group">
+            <h4 class="trust-title">FREE DELIVERY</h4>
+            <p class="trust-sub">On orders above ₹999</p>
+          </div>
+        </div>
+
+        <!-- Feature 2: EASY RETURNS -->
+        <div class="trust-feature-item">
+          <div class="trust-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <line x1="16.5" y1="9.4" x2="7.5" y2="4.21"></line>
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+              </path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <div class="trust-text-group">
+            <h4 class="trust-title">EASY RETURNS</h4>
+            <p class="trust-sub">Within 15 days</p>
+          </div>
+        </div>
+
+        <!-- Feature 3: QUALITY ASSURED -->
+        <div class="trust-feature-item">
+          <div class="trust-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <polyline points="9 12 11 14 15 10"></polyline>
+            </svg>
+          </div>
+          <div class="trust-text-group">
+            <h4 class="trust-title">QUALITY ASSURED</h4>
+            <p class="trust-sub">Crafted to last</p>
+          </div>
+        </div>
+
+        <!-- Feature 4: SECURE PAYMENT -->
+        <div class="trust-feature-item">
+          <div class="trust-icon-wrapper">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </div>
+          <div class="trust-text-group">
+            <h4 class="trust-title">SECURE PAYMENT</h4>
+            <p class="trust-sub">100% protected</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Curated Collection Gallery Section -->
+    <section class="collections-section" id="collections">
+      <div class="container">
+        <div class="section-header">
+          <div class="header-meta">
+            <span class="tag">SPRING / SUMMER 2026</span>
+            <h2 class="section-title">THE CURATED COLLECTION</h2>
+          </div>
+          <div class="filter-tabs" id="filter-tabs">
+            <button class="filter-btn active" data-filter="all">ALL</button>
+            <button class="filter-btn" data-filter="tops">TOPS & SHIRTS</button>
+            <button class="filter-btn" data-filter="trousers">TROUSERS & PANTS</button>
+            <button class="filter-btn" data-filter="accessories">BAGS & ACCESSORIES</button>
+            <button class="filter-btn" data-filter="footwear">FOOTWEAR & SHOES</button>
+            <button class="filter-btn" data-filter="kids">KIDS COLLECTION</button>
+          </div>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="products-grid" id="products-grid">
+          <!-- Dynamically populated via app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Editorial Craft & Material Manifesto -->
+    <section class="craft-section" id="about">
+      <div class="container">
+        <div class="craft-grid">
+          <div class="craft-left">
+            <span class="craft-tag">THE EVERLOOM CRAFT</span>
+            <h2 class="craft-heading">ARCHITECTURAL SILHOUETTES. UNCOMPROMISING DRAPE.</h2>
+            <p class="craft-desc">
+              Every garment in the 2026 Collection is engineered around proportion and tactile gravity. Custom 450GSM
+              loopback cottons paired with Japanese relaxed weave denim define a wardrobe built to transcend seasonal
+              cycles.
+            </p>
+            <div class="specs-grid">
+              <div class="spec-item">
+                <span class="spec-num">450</span>
+                <span class="spec-label">GSM Heavyweight Loopback</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-num">100%</span>
+                <span class="spec-label">Organic Italian Wool & Linen</span>
+              </div>
+              <div class="spec-item">
+                <span class="spec-num">09</span>
+                <span class="spec-label">Master Cut Outfits</span>
+              </div>
+            </div>
+          </div>
+          <div class="craft-right">
+            <div class="craft-card-main">
+              <img src="./media/products/woven.png" alt="Woven Minimalism Detail" class="craft-img" />
+              <div class="craft-card-caption">
+                <h4>WOVEN MINIMALISM</h4>
+                <p>Designed for natural drape and seamless volume.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Luxury Privileges & Discount Section (Seamless Full-Bleed 2-Column Banner) -->
+    <section class="privileges-banner-section" id="privileges">
+      <div class="privileges-grid">
+        <!-- Card 1 -->
+        <div class="privilege-col privilege-col-left">
+          <div class="privilege-meta">
+            <span class="privilege-tag">01 / INAUGURAL WARDROBE PRIVILEGE</span>
+            <span class="privilege-badge-pill">20% OFF</span>
+          </div>
+          <h3 class="privilege-heading">TAKE 20% OFF YOUR INAUGURAL ORDER</h3>
+          <p class="privilege-sub">Enjoy 20% privilege savings across all 2026 garments, footwear, and accessories.
+            Auto-applies at checkout.</p>
+          <div class="privilege-footer-row">
+            <span class="privilege-code-badge">CODE: <strong>EVERLOOM20</strong></span>
+            <button class="privilege-action-btn" onclick="copyPromoCode('EVERLOOM20', this)">COPY PRIVILEGE CODE
+              ↗</button>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="privilege-col privilege-col-right">
+          <div class="privilege-meta">
+            <span class="privilege-tag">02 / COMPLIMENTARY LOGISTICS</span>
+            <span class="privilege-badge-pill">FREE EXPRESS</span>
+          </div>
+          <h3 class="privilege-heading">FREE DOOR-TO-DOOR EXPRESS SHIPPING</h3>
+          <p class="privilege-sub">Complimentary express shipping on all orders over ₹999 across India with 15-day
+            door-step returns.</p>
+          <div class="privilege-footer-row">
+            <span class="privilege-code-badge">STATUS: <strong>ACTIVE ON ALL ORDERS</strong></span>
+            <button class="privilege-action-btn" onclick="toggleCart(true)">EXPLORE BAG ↗</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter & Private Club Section (3-Column Full-Width Layout) -->
+    <!-- Member Privileges & Newsletter Pre-Footer Section (Exact Match to Reference Image 2) -->
+    <section class="newsletter-section">
+      <div class="newsletter-3col-grid">
+        <!-- Left Perks Column -->
+        <div class="nl-col nl-col-left">
+          <div class="nl-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <span class="nl-col-tag">MEMBER PRIVILEGES</span>
+          <h4 class="nl-col-title">THE PRIVATE LIST</h4>
+          <div class="nl-title-line"></div>
+          <ul class="nl-perks-list nl-perks-left">
+            <li><img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /> First access to seasonal drops &amp; limited pieces</li>
+            <li><img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /> Invitation to private runway previews</li>
+            <li><img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /> Exclusive birthday privilege credits</li>
+          </ul>
+        </div>
+
+        <!-- Center Subscribe Column -->
+        <div class="nl-col nl-col-center">
+          <span class="newsletter-tag">SUBSCRIBE FOR EARLY ACCESS</span>
+          <h2 class="newsletter-title">RECEIVE FIRST ACCESS<br>TO NEW DROPS</h2>
+          <form class="newsletter-form" id="newsletter-form">
+            <input type="email" placeholder="ENTER YOUR EMAIL" required class="newsletter-input" />
+            <button type="submit" class="newsletter-btn">SUBSCRIBE ↗</button>
+          </form>
+          <span class="nl-privacy-note">By subscribing you agree to our Privacy Policy.<br>Unsubscribe anytime.</span>
+        </div>
+
+        <!-- Right Support Column -->
+        <div class="nl-col nl-col-right">
+          <div class="nl-icon-circle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+              </path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <span class="nl-col-tag">CLIENT CARE &amp; LOGISTICS</span>
+          <h4 class="nl-col-title">AT YOUR SERVICE</h4>
+          <div class="nl-title-line"></div>
+          <ul class="nl-perks-list nl-perks-right">
+            <li>Complimentary express delivery over ₹999 <img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /></li>
+            <li>15-Day hassle-free door-step returns <img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /></li>
+            <li>Personal styling advice via WhatsApp concierge <img src="./media/products/star.svg" alt="star" class="bullet-star-icon" /></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (Exact Match to Reference Image 2) -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <!-- Col 1: Brand -->
+        <div class="footer-col brand-col">
+          <a href="#" class="footer-logo">EVERLOOM</a>
+          <div class="footer-logo-line"></div>
+          <p class="footer-tagline">Timeless Style. Modern Essence.</p>
+          <div class="footer-social-icons">
+            <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"
+              class="social-icon-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+              </svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="social-icon-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743l-.002-.001.002.001a2.895 2.895 0 0 1 3.183-4.51v-3.5a6.329 6.329 0 0 0-5.394 10.692 6.33 6.33 0 0 0 10.857-4.424V8.687a8.182 8.182 0 0 0 4.773 1.526V6.79a4.831 4.831 0 0 1-1.003-.104z" />
+              </svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" aria-label="Pinterest"
+              class="social-icon-btn">
+              <svg width="15" height="15" viewBox="0 0 512 512" fill="currentColor">
+                <path
+                  d="M220.646,338.475C207.223,408.825,190.842,476.269,142.3,511.5c-14.996-106.33,21.994-186.188,39.173-270.971c-29.293-49.292,3.518-148.498,65.285-124.059c76.001,30.066-65.809,183.279,29.38,202.417c99.405,19.974,139.989-172.476,78.359-235.054C265.434-6.539,95.253,81.775,116.175,211.161c5.09,31.626,37.765,41.22,13.062,84.884c-57.001-12.65-74.005-57.6-71.822-117.533c3.53-98.108,88.141-166.787,173.024-176.293c107.34-12.014,208.081,39.398,221.991,140.376c15.67,113.978-48.442,237.412-163.23,228.529C258.085,368.704,245.023,353.283,220.646,338.475z" />
+              </svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube" class="social-icon-btn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener" aria-label="X / Twitter" class="social-icon-btn">
+              <svg width="14" height="14" viewBox="0 0 512 462.799" fill="currentColor">
+                <path
+                  d="M403.229 0h78.506L310.219 196.04 512 462.799H354.002L230.261 301.007 88.669 462.799h-78.56l183.455-209.683L0 0h161.999l111.856 147.88L403.229 0zm-27.556 415.805h43.505L138.363 44.527h-46.68l283.99 371.278z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Shop -->
+        <div class="footer-col">
+          <h5 class="footer-heading">SHOP</h5>
+          <ul class="footer-links">
+            <li><a href="#men">MEN'S COLLECTION</a></li>
+            <li><a href="#women">WOMEN'S COLLECTION</a></li>
+            <li><a href="#new-in">NEW IN</a></li>
+            <li><a href="#collections">LOOKBOOK 2026</a></li>
+            <li><a href="#about">THE CRAFT</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Client Care -->
+        <div class="footer-col">
+          <h5 class="footer-heading">CLIENT CARE</h5>
+          <ul class="footer-links">
+            <li><a href="#shipping">SHIPPING &amp; RETURNS</a></li>
+            <li><a href="#size-guide">SIZE &amp; FIT GUIDE</a></li>
+            <li><a href="#contact">CONTACT US</a></li>
+            <li><a href="#faq">FAQS</a></li>
+            <li><a href="#track-order">TRACK ORDER</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: About -->
+        <div class="footer-col">
+          <h5 class="footer-heading">ABOUT</h5>
+          <ul class="footer-links">
+            <li><a href="#story">OUR STORY</a></li>
+            <li><a href="#sustainability">SUSTAINABILITY</a></li>
+            <li><a href="#careers">CAREERS</a></li>
+            <li><a href="#store-locator">STORE LOCATOR</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 5: Location & Stay In The Know -->
+        <div class="footer-col location-col">
+          <h5 class="footer-heading">LOCATION</h5>
+          <p class="footer-address">PARIS / TOKYO / NEW YORK / MUMBAI</p>
+          <div class="footer-sub-divider"></div>
+          <div class="currency-selector">
+            <span>CURRENCY: <strong>INR (₹)</strong> <svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                style="display:inline-block; vertical-align:middle; margin-left:3px;">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg></span>
+          </div>
+          <div class="stay-know-block">
+            <div class="stay-know-content">
+              <h6 class="stay-know-title">STAY IN THE KNOW</h6>
+              <p class="stay-know-text">Exclusive drops. Style insights. Only for you.</p>
+            </div>
+            <button class="stay-know-btn" aria-label="Subscribe">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 EVERLOOM STUDIO. ALL RIGHTS RESERVED.</p>
+        <div class="legal-links">
+          <a href="#">PRIVACY POLICY</a>
+          <a href="#">TERMS OF SERVICE</a>
+          <a href="#">COOKIES</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-in Cart / Bag Drawer -->
+  <div class="cart-drawer-backdrop" id="cart-backdrop"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h3 class="drawer-title">YOUR SHOPPING BAG (<span id="drawer-cart-count">0</span>)</h3>
+      <button class="drawer-close-btn" id="cart-close-btn">&times;</button>
+    </div>
+
+    <div class="free-shipping-bar">
+      <p id="shipping-msg">Add items to unlock <strong>FREE EXPRESS SHIPPING</strong></p>
+      <div class="progress-track">
+        <div class="progress-fill" id="shipping-progress" style="width: 0%;"></div>
+      </div>
+    </div>
+
+    <div class="drawer-body" id="cart-items-container">
+      <div class="empty-cart-msg">
+        <p>Your bag is currently empty.</p>
+        <button class="start-shopping-btn" onclick="toggleCart(false)">EXPLORE COLLECTION</button>
+      </div>
+    </div>
+
+    <div class="drawer-footer">
+      <div class="subtotal-row">
+        <span>SUBTOTAL</span>
+        <span class="subtotal-price" id="cart-subtotal">₹0</span>
+      </div>
+      <p class="taxes-note">Taxes and shipping calculated at checkout.</p>
+      <button class="checkout-btn" id="btn-checkout">PROCEED TO CHECKOUT ↗</button>
+    </div>
+  </aside>
+
+  <!-- Search Modal Overlay -->
+  <div class="search-modal" id="search-modal">
+    <div class="search-modal-container">
+      <div class="search-modal-header">
+        <input type="text" class="search-modal-input" placeholder="SEARCH FOR JACKETS, TROUSERS, KNITS..."
+          id="search-input" />
+        <button class="search-close-btn" id="search-close-btn">&times;</button>
+      </div>
+      <div class="quick-tags">
+        <span class="tag-title">POPULAR SEARCHES:</span>
+        <button class="search-tag" onclick="quickSearch('Oversized')">OVERSIZED</button>
+        <button class="search-tag" onclick="quickSearch('Pleated')">PLEATED TROUSERS</button>
+        <button class="search-tag" onclick="quickSearch('Sweater')">CASHMERE KNIT</button>
+        <button class="search-tag" onclick="quickSearch('Hoodie')">HEAVYWEIGHT HOODIE</button>
+      </div>
+      <div class="search-results-grid" id="search-results"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
