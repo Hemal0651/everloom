@@ -2,7 +2,6 @@
   <img src="plasma/loger.png" alt="EVERLOOM Logo" width="160"/>
 </p>
 
-<h1 align="center">EVERLOOM</h1>
 <p align="center"><i>Timeless Style. Modern Essence.</i></p>
 
 <p align="center">
