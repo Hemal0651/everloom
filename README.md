@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="plasma/loger.png" alt="EVERLOOM Logo" width="160"/>
+  <img src="plasma/loger.png" alt="EVERLOOM Logo" width="360"/>
 </p>
 
 <p align="center"><i>Timeless Style. Modern Essence.</i></p>
